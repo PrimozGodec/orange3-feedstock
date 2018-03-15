@@ -54,7 +54,7 @@ requirements:
 test:
   commands:
     - orange-canvas --help
-    - python -m unittest -v Orange.tests
+    - python -m unittest -v Orange.tests  # [not linux32]
   imports:
     - Orange
 
