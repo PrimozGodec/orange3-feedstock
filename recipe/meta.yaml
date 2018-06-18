@@ -10,11 +10,15 @@ source:
   url: https://github.com/biolab/orange3/archive/{{ version }}.tar.gz
   sha256: {{ sha256 }}
   patches:
+    - 9f3fe46e5afae6456b1cc8948b23e3d95b44ca50.patch
     - 0001-disable-tests-using-long-file-names.patch  # [not win]
 
 build:
   number: 1000
-  script: "{{ PYTHON }} -m pip install . --no-deps -vv"
+  script:
+    - "{{ PYTHON }} -m pip install . --no-deps -vv"
+    - rm ${SP_DIR}/Orange/tests/binary-blob.tab  # [unix]
+    - del /s /q %SP_DIR%\Orange\tests\binary-blob.tab  # [win]
   entry_points:
     - orange-canvas = Orange.canvas.__main__:main
   osx_is_app: True
