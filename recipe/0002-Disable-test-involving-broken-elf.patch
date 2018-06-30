@@ -1,0 +1,19 @@
+--- work_moved_orange3-3.13.0-py37h04863e7_0_linux-64/Orange/tests/test_txt_reader.py.orig	2018-06-30 14:58:25.310031456 +0000
++++ work_moved_orange3-3.13.0-py37h04863e7_0_linux-64/Orange/tests/test_txt_reader.py	2018-06-30 14:58:35.852083724 +0000
+@@ -86,16 +86,6 @@
+         self.assertIsInstance(f1, ContinuousVariable)
+         self.assertIsInstance(f2, DiscreteVariable)
+ 
+-    def test_read_nonutf8_encoding(self):
+-        with self.assertRaises(ValueError) as cm:
+-            data = Table(test_filename('binary-blob.tab'))
+-        self.assertIn('NULL byte', cm.exception.args[0])
+-
+-        with self.assertRaises(ValueError):
+-            with warnings.catch_warnings():
+-                warnings.filterwarnings('error')
+-                data = Table(test_filename('invalid_characters.tab'))
+-
+     def test_noncontinous_marked_continuous(self):
+         file = NamedTemporaryFile("wt", delete=False)
+         file.write(noncont_marked_cont)
