@@ -10,7 +10,6 @@ source:
   url: https://github.com/biolab/orange3/archive/{{ version }}.tar.gz
   sha256: {{ sha256 }}
   patches:
-    - 9f3fe46e5afae6456b1cc8948b23e3d95b44ca50.patch
     - 0001-disable-tests-using-long-file-names.patch  # [not win]
     - 0002-Disable-test-involving-broken-elf.patch
 
