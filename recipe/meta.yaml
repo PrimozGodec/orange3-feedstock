@@ -58,7 +58,8 @@ requirements:
 test:
   commands:
     - orange-canvas --help
-    - python -m unittest -v Orange.tests  # [not linux32]
+    - MPLBACKEND=Agg python -m unittest -v Orange.tests  # [not win and not linux32]
+    - python -m unittest -v Orange.tests  # [win]
   imports:
     - Orange
 
